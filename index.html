@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">    
+<head>    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Filmes</title>
+    <link href="css/estilo.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="js/script.js" defer></script>
+</head>
+<body>    
+    <div id="container">
+
+        <div id="menu">
+            <div class="header-menu">
+                <img class="icon-logo" src="./img/filme.png" alt="">
+                <p class="logotipo">MOVIES LIST</p>                
+            </div>
+
+            <!--MENU-->
+            <p class="titulo">Menu</p>
+            <ul id="nav">
+                <li>
+                    <div class="item-menu">
+                        <img class="icon-menu" src="img/home.png"><a href="index.html">Home</a>
+                    </div>
+                </li>
+                <li>
+                    <div id="btnAbrirModal" class="item-menu">
+                        <img class="icon-menu" src="img/add.png"><a href="#">Novo Filme</a>
+                    </div>
+                </li>
+                <li>
+                    <div id="btnExcluir" class="item-menu">
+                        <img class="icon-menu" src="img/remove.png"><a href="#">Excluir Filme</a>
+                    </div>
+                </li>
+            </ul>
+
+
+            <p class="titulo">Library</p>
+            <ul id="nav">
+                <li>
+                    <div class="item-menu">
+                        <img class="icon-menu" src="img/recents.png"><a href="#">Recentes</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-menu">
+                        <img class="icon-menu" src="img/bookmarked.png"><a href="#">Preferidos</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-menu">
+                        <img class="icon-menu" src="img/star.png"><a href="#">Top Filmes</a>
+                    </div>
+                </li>
+            </ul>
+
+
+            <ul id="nav-conf">
+                <li>
+                    <div class="item-menu">
+                        <img class="icon-menu" src="img/settings.png"><a href="#">Configurações</a>
+                    </div>
+                </li>
+                <li>
+                    <div class="item-menu">
+                        <img class="icon-menu" src="img/help.png"><a href="#">Ajuda</a>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+
+        <div id="div-central">
+
+            <div class="header-central">
+                <div class="search">
+                    <input id="valuePesquisa" type="text" class="textfield", placeholder="Digite o nome do filme">
+                    <img id="btnPesquisar" src="img/search.png" class="icon">                    
+                </div>  
+            </div>
+
+            <p class="titulo">Filmes Populares</p>
+            <div id="populares"></div>
+
+            <p class="titulo">Catálodo de Filmes</p>
+            <div id="catalogo"></div>
+
+        </div>
+
+
+        <div id="div-dir">
+            <div class="header-dir">
+                <img class="icon" src="img/user.png">
+                <p>Trabalho de LDW</p>
+            </div>
+
+            <p class="titulo">Gêneros</p>
+            <ul id="nav-genero">
+                <li><a href="#">Ação</a></li>
+                <li><a href="#">Aventura</a></li>
+                <li><a href="#">Comédia</a></li>
+                <li><a href="#">Comédia Romântica</a></li>
+                <li><a href="#">Drama</a></li>
+                <li><a href="#">Fantasia</a></li>
+                <li><a href="#">Romance</a></li>
+                <li><a href="#">Terror</a></li>
+            </ul>
+
+        </div>                   
+
+
+        <!--MODAL NOVO FILME-->
+        <div id="fundo-modal"></div>
+        <div id="container-modal">
+            <div id="modal">
+                <div class="h-modal">
+                    <p class="t-modal">Novo Filme</p>
+                    <p class="close">x</p>
+                </div>
+
+                <div class="b-modal">
+
+                    <div id="campo">
+                        <img class="icon" src="img/link.png">
+                        <input type="text" class="textfield", placeholder="Link da imagem" id="link-imagem">                                            
+                    </div>  
+
+                    <div id="campo">
+                        <img class="icon" src="img/movie.png">
+                        <input type="text" class="textfield", placeholder="Nome do Filme" id="nome-filme">                                        
+                    </div>  
+
+                    <div id="campo">
+                        <img class="icon" src="img/calendar.png">
+                        <input type="text" class="textfield", placeholder="Lançamento (dd/mm/yyyy)" id="lancamento">                                        
+                    </div> 
+
+                    <div id="campo">
+                        <img class="icon" src="img/recents.png">
+                        <input type="text" class="textfield", placeholder="Duração" id="duracao">                                            
+                    </div> 
+                    
+                    <div id="campo">
+                        <img class="icon" src="img/classificacao.png">
+                        <input type="text" class="textfield", placeholder="Classificação" id="classificacao">         
+                    </div> 
+
+                    
+                    <div id="campo">
+                        <img class="icon" src="img/descricao.png">
+                        <input type="text" class="textfield", placeholder="Descrição" id="descricao">                                            
+                    </div> 
+
+                    <select id="select"></select>
+
+                </div>
+
+                <div class="f-modal">
+                    <button onclick="salvarFilme()">Salvar</button>
+                </div>
+            </div>
+        </div>
+
+    </div>       
+</body>
+</html>

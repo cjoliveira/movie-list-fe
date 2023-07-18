@@ -268,7 +268,7 @@ btnExcluir.addEventListener('click', excluirFilme);
 function excluirFilme() {
     const ArrayFilmesExcluir = JSON.parse(localStorage.getItem('filmesExcluir'));
 
-    if (ArrayFilmesExcluir.length > 0) {
+    if (ArrayFilmesExcluir != null && ArrayFilmesExcluir.length > 0) {
         const url = `http://localhost:8080/filmes/deletar-filmes?ids=${ArrayFilmesExcluir.join(',')}`;
 
         // Configurações da solicitação
@@ -287,23 +287,20 @@ function excluirFilme() {
                 } else {
                     exibirMensagemErro(response.status);
                 }
-                // Limpar o localStorage
-                localStorage.removeItem('filmesExcluir');
                 voltarTelaPrincipal();
             })
             .catch(error => {
                 exibirMensagemErro(error.message);
-                // Limpar o localStorage
-                localStorage.removeItem('filmesExcluir');
                 voltarTelaPrincipal();
             });
     } else {
         alert('Nenhum filme selecionado para exclusão');
-        // Limpar o localStorage
-        localStorage.removeItem('filmesExcluir');
         voltarTelaPrincipal();
     }
 }
+
+// Limpa localStorage quando a tela eh recarregada
+window.addEventListener('load', limparLocalStorage);
 
 /**
  * UTILIDADES PARA TRANSIÇÃO ENTRE TELAS
@@ -318,4 +315,8 @@ function exibirMensagemErro(mensagem) {
 
 function voltarTelaPrincipal() {
     window.location.href = 'index.html';
+}
+
+function limparLocalStorage() {
+    localStorage.removeItem('filmesExcluir');
 }
